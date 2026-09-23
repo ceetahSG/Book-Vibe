@@ -1,16 +1,20 @@
 import React from "react";
 import logo from "@/assetes/book.ico";
 import Image from "next/image";
+import Link from "next/link";
 const links = (
   <>
     <li>
-      <a>Home</a>
+      <Link href="/">Home</Link>
     </li>
     <li>
-      <a>Listed Books</a>
+      <Link href="/books">Total Books</Link>
     </li>
     <li>
-      <a>Pages To Read</a>
+      <Link href="/listed-books">Listed Books</Link>
+    </li>
+    <li>
+      <Link href="/read-books">Read Books</Link>
     </li>
   </>
 );
@@ -46,7 +50,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Image src={logo} />
+          <Image src={logo} alt="logo" />
           <a className="btn btn-ghost text-xl">Book Vibe</a>
         </div>
         <div className="navbar-center hidden lg:flex">
