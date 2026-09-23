@@ -3,23 +3,39 @@ import React from "react";
 import Image from "next/image";
 import ReadButton from "@/components/BookDetails/ReadButton";
 import WishListButton from "@/components/BookDetails/WishListButton";
+
 interface BookDetailsPageProps {
   params: Promise<{
     id: string;
   }>;
 }
+
 const getBooks = async () => {
-  const response = await fetch("http://localhost:3000/booksData.json");
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`,
+    );
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    return [];
+  }
 };
+
 const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
   const { id } = await params;
+
   const booksData = await getBooks();
+
   const book = booksData.find(
     (book: IBook) => book.bookId === Number(id),
   ) as IBook;
+
   console.log(book);
+
   return (
     <div className="container mx-auto my-10 px-4">
       <div className="card overflow-hidden rounded-3xl bg-base-100 shadow-xl lg:card-side">
@@ -104,10 +120,12 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
               ))}
             </div>
           </div>
-          <div className="flex gap-4">
-            <ReadButton book={book}></ReadButton>
 
-            <WishListButton book={book}></WishListButton>
+          {/* Buttons */}
+          <div className="flex gap-4">
+            <ReadButton book={book} />
+
+            <WishListButton book={book} />
           </div>
         </div>
       </div>
