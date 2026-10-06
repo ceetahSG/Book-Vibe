@@ -22,8 +22,8 @@ const links = (
 const Navbar = () => {
   return (
     <nav className="bg-base-100 shadow-sm">
-      <div className="navbar container mx-auto">
-        <div className="navbar-start">
+      <div className="navbar container mx-auto px-3 sm:px-4">
+        <div className="navbar-start min-w-0">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -50,15 +50,17 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Image src={logo} alt="logo" />
-          <a className="btn btn-ghost text-xl">Book Vibe</a>
+          <Image src={logo} alt="Book Vibe logo" width={32} height={32} />
+          <Link href="/" className="btn btn-ghost min-w-0 px-2 text-lg sm:text-xl">
+            <span className="truncate">Book Vibe</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end gap-4">
-          <a className="btn btn-success">Sign in</a>
-          <a className="btn btn-active">Sign Up</a>
+        <div className="navbar-end gap-1 sm:gap-2">
+          <button className="btn btn-success btn-sm sm:btn-md">Sign in</button>
+          <button className="btn btn-active btn-sm sm:btn-md">Sign Up</button>
         </div>
       </div>
     </nav>

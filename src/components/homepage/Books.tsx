@@ -18,9 +18,9 @@ const Books = async () => {
   const books = await getBooks();
   console.log(books);
   return (
-    <section className="container mx-auto">
-      <h2 className="font-bold text-4xl flex justify-center my-10">Books</h2>
-      <div className="grid grid-cols-3 gap-4">
+    <section className="container mx-auto px-4 pb-8 sm:pb-12">
+      <h2 className="my-8 flex justify-center text-3xl font-bold sm:my-10 sm:text-4xl">Books</h2>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {books.slice(0, 3).map((book: IBook) => {
           return <BookCard key={book.bookId} book={book} />;
         })}

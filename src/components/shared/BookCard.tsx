@@ -11,7 +11,7 @@ const BookCard = ({ book }: IBookCardProps) => {
     <Link href={`/books/${book.bookId}`}>
       <div className="card overflow-hidden rounded-2xl bg-base-100 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
         {/* Image */}
-        <figure className="h-72 bg-base-200 p-6">
+        <figure className="h-64 bg-base-200 p-5 sm:h-72 sm:p-6">
           <Image
             src={book.image}
             alt={book.bookName}
@@ -34,7 +34,7 @@ const BookCard = ({ book }: IBookCardProps) => {
           </div>
 
           {/* Book Name */}
-          <h2 className="card-title mt-2 text-2xl font-bold">
+          <h2 className="card-title mt-2 text-xl font-bold sm:text-2xl">
             {book.bookName}
           </h2>
 

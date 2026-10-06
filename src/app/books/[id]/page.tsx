@@ -37,10 +37,10 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
   console.log(book);
 
   return (
-    <div className="container mx-auto my-10 px-4">
+    <div className="container mx-auto my-6 px-3 sm:my-10 sm:px-4">
       <div className="card overflow-hidden rounded-3xl bg-base-100 shadow-xl lg:card-side">
         {/* Book Image */}
-        <figure className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-10 lg:w-2/5">
+        <figure className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 sm:p-10 lg:w-2/5">
           <Image
             src={book.image}
             alt={book.bookName}
@@ -51,7 +51,7 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
         </figure>
 
         {/* Book Information */}
-        <div className="card-body gap-5 p-8 lg:w-3/5 lg:p-12">
+        <div className="card-body gap-5 p-5 sm:p-8 lg:w-3/5 lg:p-12">
           {/* Category + Rating */}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <span className="badge badge-primary rounded-full px-4 py-3">
@@ -66,7 +66,7 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
           {/* Title */}
           <div>
-            <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl">
+            <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
               {book.bookName}
             </h2>
 
@@ -122,7 +122,7 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
             <ReadButton book={book} />
 
             <WishListButton book={book} />

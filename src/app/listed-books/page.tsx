@@ -103,16 +103,16 @@ const ListedBooks = () => {
       </div>
 
       {/* Tabs */}
-      <div className="tabs tabs-lifted border-b border-base-300">
+      <div className="tabs tabs-lifted grid w-full grid-cols-2 border-b border-base-300">
         <button
-          className={`tab ${activeTab === "read" ? "tab-active" : ""}`}
+          className={`tab min-w-0 px-2 text-xs sm:text-sm ${activeTab === "read" ? "tab-active" : ""}`}
           onClick={() => setActiveTab("read")}
         >
           Read Books
         </button>
 
         <button
-          className={`tab ${activeTab === "wishlist" ? "tab-active" : ""}`}
+          className={`tab min-w-0 px-2 text-xs sm:text-sm ${activeTab === "wishlist" ? "tab-active" : ""}`}
           onClick={() => setActiveTab("wishlist")}
         >
           Wishlist Books
@@ -124,7 +124,7 @@ const ListedBooks = () => {
         {books.map((book) => (
           <div
             key={book.bookId}
-            className="flex flex-col gap-5 rounded-xl border border-base-300 bg-base-100 p-4 transition-all duration-300 hover:shadow-md sm:flex-row"
+            className="flex flex-col gap-4 rounded-xl border border-base-300 bg-base-100 p-3 transition-all duration-300 hover:shadow-md sm:gap-5 sm:p-4 sm:flex-row"
           >
             {/* Image */}
             <div className="flex h-32 w-full shrink-0 items-center justify-center rounded-xl bg-base-200 p-4 sm:w-32">
@@ -161,7 +161,7 @@ const ListedBooks = () => {
                 ))}
 
                 <span className="text-base-content/60">
-                  ◉ &nbsp; Year of Publishing: {book.yearOfPublishing}
+                  <span aria-hidden="true">◉</span> &nbsp; Year of Publishing: {book.yearOfPublishing}
                 </span>
               </div>
 
